@@ -2,6 +2,8 @@
 let _canvas = null;
 let _ctx = null;
 
+// requestAnimationFrame()
+
 function init() {
 
     window.addEventListener('load', (e) => {
@@ -51,6 +53,7 @@ function getViewportSize() {
     return { x, y };
 }
 
+/// 
 function getCtx() {
     if (!_ctx) {
         _ctx = _canvas.getContext('2d');
@@ -59,7 +62,7 @@ function getCtx() {
     return _ctx;
 }
 
-function line(x1, y1, x2, y2, width, stroke) {
+function line(x1, y1, x2, y2) {
 
     const ctx = getCtx();
 
@@ -74,14 +77,14 @@ function setLineWidth(width) {
     ctx.lineWidth = width;
 }
 
-function setFill(fill) {
+function setFillColor(fill) {
     const ctx = getCtx();
     ctx.fillStyle = fill;
 }
 
-function setStroke(stroke) {
+function setLineColor(color) {
     const ctx = getCtx();
-    ctx.strokeStyle = stroke;
+    ctx.strokeStyle = color;
 }
 
 function circle(x, y, radius) {
@@ -102,7 +105,17 @@ function rect(x, y, width, height) {
     ctx.strokeRect(x,y,width, height);
 }
 
+function setFont(fontName) {
+
+}
+
+function text(text) {
+    const ctx = getCtx();
+
+    
+}
+
 const b = {
-    setFill, setLineWidth, setStroke,
+    setFillColor, setLineWidth, setLineColor,
     line, circle, rect, onRender: () => { }
 };
