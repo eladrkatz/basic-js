@@ -1,10 +1,18 @@
 // import basic from 'basic';
 
-basic.onRender = function () {
+b.onRender = function () {
 
-    basic.rect(0, 0, 100, 100, "blue");
+    b.setFill("white");
+    b.setStroke("purple")
 
-    basic.line(500, 500, 300, 400, 6, 'green');
+    b.rect(0, 0, 100, 100);
 
-    basic.circle(550, 50, 100, 'red', 'yellow');
+    b.setLineWidth(6);
+    b.setStroke('green');
+
+    b.line(500, 500, 300, 400);
+
+    b.setFill('red');
+    b.setStroke('yellow');
+    b.circle(550, 50, 100);
 }
