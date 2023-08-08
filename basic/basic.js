@@ -23,8 +23,6 @@ function init() {
 
     });
 
-
-
     window.addEventListener('resize', function (event) {
 
         const { x, y } = getViewportSize();
@@ -35,6 +33,10 @@ function init() {
         b.onRender();
 
     }, true);
+
+    setInterval(() => {
+        location.reload();
+    }, 200);
 
 }
 
