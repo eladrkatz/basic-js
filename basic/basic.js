@@ -36,9 +36,9 @@ function init() {
 
     }, true);
 
-    setInterval(() => {
+    setTimeout(() => {
         location.reload();
-    }, 200);
+    }, 500);
 
 }
 
