@@ -98,7 +98,7 @@ function circle(x, y, radius) {
 
 }
 
-function rect(x, y, width, height) {
+function rectangle(x, y, width, height) {
     const ctx = getCtx();
 
     ctx.fillRect(x, y, width, height);
@@ -117,5 +117,5 @@ function text(text) {
 
 const b = {
     setFillColor, setLineWidth, setLineColor,
-    line, circle, rect, onRender: () => { }
+    line, circle, rectangle, onRender: () => { }
 };
