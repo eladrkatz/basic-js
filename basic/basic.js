@@ -105,17 +105,23 @@ function rectangle(x, y, width, height) {
     ctx.strokeRect(x,y,width, height);
 }
 
-function setFont(fontName) {
+let _fontSize = '30px';
+let _fontFamily = 'Arial';
 
-}
+function text(text, x, y, size, font) {
 
-function text(text) {
+    if (size) _fontSize = size;
+    if (font) _fontFamily = font;
+
     const ctx = getCtx();
 
-    
+    ctx.font = `${_fontSize} ${_fontFamily}`;
+    ctx.fillText(text, x, y);
+    ctx.strokeText(text, x, y);
+
 }
 
 const b = {
-    setFillColor, setLineWidth, setLineColor,
+    setFillColor, setLineWidth, setLineColor, text,
     line, circle, rectangle, onRender: () => { }
 };
