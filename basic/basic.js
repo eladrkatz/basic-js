@@ -2,11 +2,9 @@
 let _canvas = null;
 let _ctx = null;
 
-// requestAnimationFrame()
-
 function init() {
 
-    window.addEventListener('load', (e) => {
+    window.addEventListener('load', async (e) => {
 
         const { x, y } = getViewportSize();
 
@@ -21,6 +19,8 @@ function init() {
 
         body.appendChild(_canvas);
 
+        await b.doEvents();
+
         b.onRender();
 
     });
@@ -32,13 +32,13 @@ function init() {
         _canvas.height = y;
         _canvas.width = x;
 
-        b.onRender();
+        // b.onRender();
 
     }, true);
 
-    setTimeout(() => {
-        location.reload();
-    }, 500);
+    // setTimeout(() => {
+    //     location.reload();
+    // }, 500);
 
 }
 
@@ -53,7 +53,6 @@ function getViewportSize() {
     return { x, y };
 }
 
-/// 
 function getCtx() {
     if (!_ctx) {
         _ctx = _canvas.getContext('2d');
@@ -121,7 +120,26 @@ function text(text, x, y, size, font) {
 
 }
 
+function askBoolean(question) {
+    const resp = window.confirm(question);
+
+    return resp;
+}
+
+function askText(question) {
+    const resp = window.prompt(question);
+
+    return resp;
+}
+
+async function doEvents() {
+    return new Promise(res => {
+        requestAnimationFrame((time) => res(time));
+    });
+}
+
 const b = {
     setFillColor, setLineWidth, setLineColor, text,
-    line, circle, rectangle, onRender: () => { }
+    line, circle, rectangle, onRender: () => { },
+    askBoolean, askText, doEvents
 };
